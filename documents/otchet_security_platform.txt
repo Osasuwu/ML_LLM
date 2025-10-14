@@ -1,0 +1,43 @@
+ANNUAL REPORT: "Unified Security Monitoring Platform"
+Version: 1.0
+Date: 14.10.2025
+Head of Security: Maria Lebedeva
+
+1. GENERAL DESCRIPTION
+The goal of the program is to consolidate disparate monitoring tools (SIEM, IDS, CloudTrail, EDR, WAF logs) into a single normalized event bus with ML correlation and prioritization of incidents by risk scoring.
+
+2. ACHIEVEMENTS OF 2025
+2.1 Data Ingestion: 34 sources are unified. Throughput: peaks up to 280K events/sec, steady.
+2.2 Normalization: Introduced event schemes (security_event_v1) → simplification of correlation rules (-41% DSL complexity).
+2.3 Correlation: 57 rules + 9 ML models have been implemented (anomalies in rare combinations of IP+UA+Geo, lateral movement patterns).
+2.4 Response Automation: SOAR playbooks for 12 types of incidents (average initial response time 22 min → 6 min).
+2.5 RBAC & Segmentation: Trust zones + asset tagging introduced; rights audit completed (137 outdated accounts discovered, 100% closed).
+2.6 Threat Intel: Integration of 4 external feeds; automatic IOC enrichment (adding context: reputation, neighboring domains, ASN).
+2.7 Reporting: MITRE ATT&CK coverage panel (67% coverage of critical priority techniques).
+
+3. KEY METRICS
+- Mean Time To Detect (MTTD): 4h12m → 1h05m.
+- Mean Time To Respond (MTTR): 16h → 5h40m.
+- False Alarm rate (top-20 rules): 38% → 14%.
+- Automatically closed (SOAR) without escalation: 0 → 27%.
+- Enriched events: 0 → 72%.
+
+4. PROBLEMS
+P1: High cost of storing "raw" logs (retention 180 days) → budget overruns.
+P2: Inconsistency of tags for cloud resources (multi-account drift).
+P3: Insufficient coverage of Linux EDR sensors in edge locations.
+
+5. RISKS
+R1: The lack of reverse engineering experts may slow down the analysis of new malware families.
+R2: Errors in ML anomaly models can lead to "alert fatigue". Plan: implementation of active learning.
+R3: An increase in the volume of events >350K/sec will require horizontal sharding of the ingestion cluster.
+
+6. THE PLAN FOR 2026
+- Implement prioritization of alerts based on the business criticality of assets.
+- Expand ML pipeline (online adaptation of seasonality).
+- Reducing the storage of raw logs to 120 days + hot/cold layer.
+- Increase MITRE coverage of critical techniques to 85%.
+- Automate artifact preparation for post‑incident analysis.
+
+7. WITHDRAWAL
+Consolidation has increased transparency and responsiveness. Prioritization of investments — optimization of storage and maturity of ML filtering.

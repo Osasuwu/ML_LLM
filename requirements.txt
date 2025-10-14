@@ -1,0 +1,10 @@
+google-generativeai
+chromadb
+sentence-transformers
+python-dotenv
+pydantic-settings
+pypdf
+python-docx
+fastapi
+uvicorn
+openpyxl

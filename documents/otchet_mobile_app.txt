@@ -1,0 +1,43 @@
+STATUS REPORT: "Mobile App Re-Architecture"
+Version: 0.9
+Date: 14.10.2025
+PM: Dmitry Orlov
+
+1. PURPOSE
+A complete redesign of the mobile application (iOS/Android) with the transition to the "feature modules" architecture, the introduction of offline cache and the unification of the design system to reduce the Time-to-Market of new functions.
+
+2. ACHIEVEMENTS
+2.1 Architecture: Implemented an abstraction layer over network queries (Kotlin Multiplatform + Swift wrappers).
+2.2 Cache: Implemented a hybrid mechanism (SQLite + protobuf serialization). Reduction of network traffic by 34%.
+2.3 UI Kit: 57 components have been transferred to a single design system, with 100% dark mode coverage.
+2.4 Analytics: Unified event tracking (Amplitude + internal pipeline), improved schema consistency.
+2.5 Accessibility: Added labels, dynamic font scaling support, contrast checked (WCAG AA).
+
+3. PERFORMANCE METRICS
+ - Cold start time: 2.9s → 1.6s.
+ - APK size: 118MB → 82MB.
+ - Battery consumption (30‑minute test scenario session): -19%.
+ - Crash rate: 1.8% → 0.6%.
+ - Home screen rendering time: 420ms → 180ms.
+
+4. PROBLEMS
+P1: Inconsistency of API versions of server endpoints (v2 vs v3) – temporary adapters increase complexity.
+P2: The test environment is unstable for push notifications (delivery misses ~7%).
+
+5. RISKS
+R1: The delay in the release of the design system by the web team creates discrepancies by the time of the general marketing campaigns.
+R2: The growth of technical debt in the offline synchronization module (there is no retry strategy for conflicts).
+
+6. USER METRICS (BETA)
+ - Beta NPS: +41.
+ - Average session duration: +12%.
+ - Retention D7: 27% → 33% (on a limited sample).
+
+7. NEXT STEPS
+ - Complete the implementation of the Smart offline queues feature.
+ - Embed the A/B infrastructure at the navigation layer level.
+ - Expand automated UI tests (goal: 65% of critical scenarios).
+ - Prepare materials for marketing (screenshots, videos).
+
+8. WITHDRAWAL
+The project brings measurable performance and UX improvements. It is critical to close the risks of API synchronization and offline conflicts before the RC release.
