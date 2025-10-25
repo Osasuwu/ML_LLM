@@ -63,9 +63,13 @@ class LLMEngine:
             prompt = (
                 f"You are a helpful AI assistant for a corporate knowledge base system.\n"
                 f"{language_instruction}\n"
-                f"Base the answer ONLY on the provided context from internal documents.\n"
-                f"Cite source file names inline like [Source 1: filename].\n\n"
-                f"CONTEXT:\n{context_text}\n\nQUESTION: {query}\n\nANSWER:"
+                f"Carefully analyze ALL provided context from internal documents.\n"
+                f"Pay special attention to specific numbers, metrics, dates, and quantitative data.\n"
+                f"If the answer is in the context, provide it with exact values and cite sources like [Source 1: filename].\n"
+                f"If the information is truly not in the context, clearly state that.\n\n"
+                f"CONTEXT:\n{context_text}\n\n"
+                f"QUESTION: {query}\n\n"
+                f"ANSWER:"
             )
         else:
             # Direct query without context

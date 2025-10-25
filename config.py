@@ -18,15 +18,15 @@ class Settings(BaseSettings):
     )
     
     # Document processing
-    chunk_size: int = Field(default=1000, env='CHUNK_SIZE')
-    chunk_overlap: int = Field(default=200, env='CHUNK_OVERLAP')
+    chunk_size: int = Field(default=1500, env='CHUNK_SIZE')  # Increased from 1000
+    chunk_overlap: int = Field(default=300, env='CHUNK_OVERLAP')  # Increased from 200
     
     # Storage paths
     vector_db_path: str = Field(default='./vector_db', env='VECTOR_DB_PATH')
     documents_path: str = Field(default='./documents', env='DOCUMENTS_PATH')
     
     # Retrieval settings
-    top_k_results: int = Field(default=3, env='TOP_K_RESULTS')
+    top_k_results: int = Field(default=10, env='TOP_K_RESULTS')  # Increased from 5 for better recall
     
     # Gemini model settings
     gemini_model: str = Field(default='gemini-2.0-flash', env='GEMINI_MODEL')

@@ -189,8 +189,8 @@ class DocumentLoader:
         
         return documents
     
-    def chunk_text(self, text: str, chunk_size: int = 1000, 
-                   chunk_overlap: int = 200) -> List[str]:
+    def chunk_text(self, text: str, chunk_size: int = 1500, 
+                   chunk_overlap: int = 300) -> List[str]:
         """Split text into overlapping chunks.
         
         Args:

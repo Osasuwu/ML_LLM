@@ -47,7 +47,7 @@ class VectorStore:
         return embeddings.tolist()
     
     def add_documents(self, documents: List[Dict[str, str]], 
-                     chunk_size: int = 1000, chunk_overlap: int = 200,
+                     chunk_size: int = 1500, chunk_overlap: int = 300,
                      batch_size: int = 5000):
         """Add documents to the vector store.
         
